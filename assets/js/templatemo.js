@@ -1,26 +1,21 @@
-/*
-
-TemplateMo 559 Zay Shop
-
-https://templatemo.com/tm-559-zay-shop
-
-*/
+ 
 
 'use strict';
 $(document).ready(function() {
 
     // Accordion
+    /*
     var all_panels = $('.templatemo-accordion > li > ul').hide();
 
     $('.templatemo-accordion > li > a').click(function() {
-        console.log('Hello world!');
+        //console.log('Hello world!');
         var target =  $(this).next();
         if(!target.hasClass('active')){
             all_panels.removeClass('active').slideUp();
             target.addClass('active').slideDown();
         }
       return false;
-    });
+    });*/
     // End accordion
 
     // Product detail
@@ -37,8 +32,14 @@ $(document).ready(function() {
       return false;
     });
     $('#btn-plus').click(function(){
+      var form=document.tamila_tienda_form_single;
       var val = $("#var-value").html();
-      val++;
+      
+      if(parseInt(val)>=parseInt(form.stock.value)){
+        
+      }else{
+        val++;
+      }
       $("#var-value").html(val);
       $("#product-quanity").val(val);
       return false;
