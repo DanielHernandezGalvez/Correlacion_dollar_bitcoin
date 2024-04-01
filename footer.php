@@ -1,6 +1,7 @@
 <?php
 if(!defined('ABSPATH')) die();
 ?>
+
   <footer class="bg-dark" id="tempaltemo_footer">
         <div class="container">
             
