@@ -23,7 +23,8 @@ if (!defined('ABSPATH'))
     <link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/assets/css/templatemo.css" />
     <link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/assets/css/custom.css" />
     <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap" />
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap" /> 
+    <!-- <link rel="stylesheet" href="<?php get_template_directory_uri() ?>/assets/css/fontawesome.min.css"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/assets/css/sweetalert2.css" />
     <?php wp_head(); ?>
@@ -75,18 +76,22 @@ if (!defined('ABSPATH'))
                 id="templatemo_main_nav">
                 <div class="flex-fill">
                     <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.html">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="about.html">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="shop.html">Shop</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="contact.html">Contact</a>
-                        </li>
+                        <?php
+                        $menu_items = wp_get_nav_menu_items(('menu-principal'));
+                        foreach ((array) $menu_items as $key => $menu_item) {
+                            if (!$menu_item->menu_item_parent) {
+                                ?>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="<?php echo $menu_item->url ?>"
+                                        title="<?php echo $menu_item->title ?>">
+                                        <?php echo $menu_item->title ?>
+                                    </a>
+                                </li>
+                                <?php
+                            }
+                        }
+                        ?>
+
                     </ul>
                 </div>
                 <div class="navbar align-self-center d-flex">
@@ -119,13 +124,15 @@ if (!defined('ABSPATH'))
     </nav>
     <!-- Close Header -->
 
-     <!--modal-->
-     <div class="modal fade bg-white" id="templatemo_search" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <!--modal-->
+    <div class="modal fade bg-white" id="templatemo_search" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
             <div class="w-100 pt-1 mb-5 text-right">
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" title="Cerrar"></button>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                    title="Cerrar"></button>
             </div>
-            <form action="<?php echo get_site_url();?>" method="get" class="modal-content modal-body border-0 p-0">
+            <form action="<?php echo get_site_url(); ?>" method="get" class="modal-content modal-body border-0 p-0">
                 <div class="input-group mb-2">
                     <input type="text" class="form-control" id="inputModalSearch" name="s" placeholder="Buscar" />
                     <button type="submit" class="input-group-text bg-success text-light" title="Buscar">
