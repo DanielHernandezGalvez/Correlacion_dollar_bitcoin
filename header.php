@@ -23,7 +23,7 @@ if (!defined('ABSPATH'))
     <link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/assets/css/templatemo.css" />
     <link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/assets/css/custom.css" />
     <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap" /> 
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap" />
     <!-- <link rel="stylesheet" href="<?php get_template_directory_uri() ?>/assets/css/fontawesome.min.css"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/assets/css/sweetalert2.css" />
@@ -61,7 +61,7 @@ if (!defined('ABSPATH'))
     <nav class="navbar navbar-expand-lg navbar-light shadow">
         <div class="container d-flex justify-content-between align-items-center">
 
-            <a class="navbar-brand text-success logo h1 align-self-center" href="index.html">
+            <a class="navbar-brand text-success logo h1 align-self-center" href="<?php echo get_site_url(); ?>">
                 <!-- <img src="<?php echo get_template_directory_uri() ?>/assets/img/logo.png" alt=""> -->
                 indoor
             </a>
