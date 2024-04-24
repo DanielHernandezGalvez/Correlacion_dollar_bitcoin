@@ -1,8 +1,9 @@
-import  { useState } from "react";
+import { useState } from "react";
 import "./App.css";
 import React from "react";
 import Header from "./components/Header";
 import TaskForm from "./components/TaskForm";
+import TaskList from "./components/TaskList";
 
 function App() {
   const [task, setTask] = useState([
@@ -10,13 +11,14 @@ function App() {
     { id: 2, texto: "Sentadilla libre", completada: false },
   ]);
 
-  console.log(task)
+  console.log(task);
 
   return (
     <>
       <div className="contenedor">
         <Header />
-        <TaskForm task={task} setTask={setTask}/>
+        <TaskForm task={task} setTask={setTask} />
+        <TaskList task={task} />
       </div>
     </>
   );

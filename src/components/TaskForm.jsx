@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { v4 as uuidv4 } from 'uuid';
 import { faPlusSquare } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
@@ -14,7 +15,7 @@ const TaskForm = ({ task, setTask }) => {
     event.preventDefault();
 
     setTask([...task, {
-        id: 3,
+        id: uuidv4(),
         texto: inputTask,
         completada: false
     }]);
