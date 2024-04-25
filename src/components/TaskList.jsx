@@ -14,6 +14,28 @@ const TaskList = ({ task, setTask }) => {
     );
   };
 
+  const editarTarea = (id, nuevoTexto) => {
+    setTask(
+      task.map((exercice) => {
+        if (exercice.id === id) {
+          return { ...exercice, texto: nuevoTexto };
+        }
+        return exercice;
+      })
+    );
+  };
+
+  const borrarTarea = (id) => {
+    setTask(
+      task.filter((exercice) => {
+        if (exercice.id !== id) {
+          return exercice;
+        }
+        return;
+      })
+    );
+  };
+
   return (
     <ul className="lista-tareas">
       {task.length > 0 ? (
@@ -23,6 +45,8 @@ const TaskList = ({ task, setTask }) => {
               key={exercice.id}
               exercice={exercice}
               toggleCompletda={toggleCompletda}
+              editarTarea={editarTarea}
+              borrarTarea={borrarTarea}
             />
           );
         })

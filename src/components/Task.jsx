@@ -7,12 +7,13 @@ import {
   faTimes,
 } from "@fortawesome/free-solid-svg-icons";
 
-const Task = ({ exercice, toggleCompletda }) => {
+const Task = ({ exercice, toggleCompletda, editarTarea, borrarTarea }) => {
   const [editandoTarea, setEditandoTarea] = useState(false);
   const [nuevaTarea, setNuevaTarea] = useState(exercice.texto);
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    editarTarea(exercice.id, nuevaTarea)
     setEditandoTarea(false);
   };
 
@@ -54,6 +55,7 @@ const Task = ({ exercice, toggleCompletda }) => {
         <FontAwesomeIcon
           icon={faTimes}
           className="lista-tareas__icono lista-tareas__icono-accion"
+          onClick={() => borrarTarea(exercice.id)}
         />
       </div>
     </li>
