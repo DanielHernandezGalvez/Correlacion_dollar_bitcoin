@@ -1,9 +1,27 @@
-import React from 'react'
+import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCheckSquare, faEdit, faTimes } from "@fortawesome/free-solid-svg-icons";
 
-const Task = ({exercice}) => {
+const Task = ({ exercice }) => {
   return (
-    <li>{exercice.texto}</li>
-  )
-}
+    <li className="lista-tareas__tarea">
+      <FontAwesomeIcon
+        icon={faCheckSquare}
+        className="lista-tareas__icono lista-tareas__icono-check"
+      />
+      <div className="lista-tareas__texto">{exercice.texto}</div>
+      <div className="lista-tareas__contenedor-botones">
+        <FontAwesomeIcon
+          icon={faEdit}
+          className="lista-tareas__icono lista-tareas__icono-accion"
+        />
+        <FontAwesomeIcon
+          icon={faTimes}
+          className="lista-tareas__icono lista-tareas__icono-accion"
+        />
+      </div>
+    </li>
+  );
+};
 
-export default Task
+export default Task;
