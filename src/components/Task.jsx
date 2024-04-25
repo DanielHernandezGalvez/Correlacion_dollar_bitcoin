@@ -2,24 +2,27 @@ import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCheckSquare,
+  faSquare,
   faEdit,
   faTimes,
 } from "@fortawesome/free-solid-svg-icons";
 
-const Task = ({ exercice }) => {
+const Task = ({ exercice, toggleCompletda }) => {
   const [editandoTarea, setEditandoTarea] = useState(false);
   const [nuevaTarea, setNuevaTarea] = useState(exercice.texto);
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setEditandoTarea(false)
+    setEditandoTarea(false);
   };
+
 
   return (
     <li className="lista-tareas__tarea">
       <FontAwesomeIcon
-        icon={faCheckSquare}
+        icon={exercice.completada ? faCheckSquare : faSquare}
         className="lista-tareas__icono lista-tareas__icono-check"
+        onClick={() => toggleCompletda(exercice.id)}
       />
       <div className="lista-tareas__texto">
         {editandoTarea ? (

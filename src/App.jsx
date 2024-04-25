@@ -8,7 +8,7 @@ import TaskList from "./components/TaskList";
 function App() {
   const [task, setTask] = useState([
     { id: 1, texto: "press de banca", completada: false },
-    { id: 2, texto: "Sentadilla libre", completada: false },
+    { id: 2, texto: "Sentadilla libre", completada: true },
   ]);
 
   console.log(task);
@@ -18,7 +18,7 @@ function App() {
       <div className="contenedor">
         <Header />
         <TaskForm task={task} setTask={setTask} />
-        <TaskList task={task} />
+        <TaskList task={task} setTask={setTask} />
       </div>
     </>
   );
