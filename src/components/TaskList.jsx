@@ -1,7 +1,7 @@
 import React from "react";
 import Task from "./Task";
 
-const TaskList = ({ task, setTask }) => {
+const TaskList = ({ task, setTask, mostrarCompletadas }) => {
   const toggleCompletda = (id) => {
     console.log("editando la  tarea con id");
     setTask(
@@ -40,15 +40,30 @@ const TaskList = ({ task, setTask }) => {
     <ul className="lista-tareas">
       {task.length > 0 ? (
         task.map((exercice) => {
-          return (
-            <Task
-              key={exercice.id}
-              exercice={exercice}
-              toggleCompletda={toggleCompletda}
-              editarTarea={editarTarea}
-              borrarTarea={borrarTarea}
-            />
-          );
+          if (mostrarCompletadas) {
+            return (
+              <Task
+                key={exercice.id}
+                exercice={exercice}
+                toggleCompletda={toggleCompletda}
+                editarTarea={editarTarea}
+                borrarTarea={borrarTarea}
+              />
+            );
+            // Si latarea no esta completada la devbolvemos
+          } else if (!exercice.completada) {
+            return (
+              <Task
+                key={exercice.id}
+                exercice={exercice}
+                toggleCompletda={toggleCompletda}
+                editarTarea={editarTarea}
+                borrarTarea={borrarTarea}
+              />
+            );
+          }
+          // si ya esta completada no la devolvemos
+            return;
         })
       ) : (
         <div className="lista-tareas__mensaje">No hay tareas Agregadas</div>

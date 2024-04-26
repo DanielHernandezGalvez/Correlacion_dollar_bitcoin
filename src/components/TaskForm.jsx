@@ -19,6 +19,7 @@ const TaskForm = ({ task, setTask }) => {
         texto: inputTask,
         completada: false
     }]);
+    setInputTask("")
   };
 
   return (
