@@ -6,16 +6,35 @@ import TaskForm from "./components/TaskForm";
 import TaskList from "./components/TaskList";
 
 function App() {
-  const [task, setTask] = useState([
-    { id: 1, texto: "press de banca", completada: false },
-    { id: 2, texto: "Sentadilla libre", completada: true },
-  ]);
-  useEffect(() => {
-    localStorage.setItem("task", );
-  }, [task])
-  const [mostrarCompletadas, setMostrarCompletadas] = useState(false);
+  // Obtenemos tareas guardadas del localstorage
+  const tareasGuardadas = localStorage.getItem("task")
+    ? JSON.parse(localStorage.getItem("task"))
+    : [];
 
-  console.log(task);
+  // establecemos el estado de las tareas
+  const [task, setTask] = useState(tareasGuardadas);
+
+  useEffect(() => {
+    localStorage.setItem("task", JSON.stringify(task));
+  }, [task]);
+
+  // accedemos al localstorage y comprobar si mostrar completadas es null
+  let configMostrarCompletadas = "";
+  if (localStorage.getItem("mostrarCompletadas") === null) {
+    configMostrarCompletadas = true;
+  } else {
+    configMostrarCompletadas =
+      localStorage.getItem("mostrarCompletadas") === true;
+  }
+
+  // el estado de mostrar tareas completadas
+  const [mostrarCompletadas, setMostrarCompletadas] = useState(
+    configMostrarCompletadas
+  );
+
+  useEffect(() => {
+    localStorage.setItem("mostrarCompletadas", mostrarCompletadas.toString());
+  }, [mostrarCompletadas]);
 
   return (
     <>
