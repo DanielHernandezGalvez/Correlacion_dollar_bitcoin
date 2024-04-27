@@ -63,7 +63,7 @@ const TaskList = ({ task, setTask, mostrarCompletadas }) => {
             );
           }
           // si ya esta completada no la devolvemos
-            return;
+          return;
         })
       ) : (
         <div className="lista-tareas__mensaje">No hay tareas Agregadas</div>
