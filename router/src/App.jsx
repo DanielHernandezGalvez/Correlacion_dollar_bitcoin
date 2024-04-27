@@ -4,6 +4,8 @@ import Blog from "./pages/Blog";
 import AcercaDe from "./pages/AcercaDe";
 import Header from "./pages/Header";
 import styled from "styled-components";
+import Post from "./pages/Post";
+import Error404 from "./pages/Error404";
 
 const App = () => {
   return (
@@ -11,8 +13,10 @@ const App = () => {
       <Header />
       <Main>
         <Routes>
+          <Route path="*" element={<Error404 />} />
           <Route path="/" element={<Inicio />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/post/:id" element={<Post />} />
           <Route path="/acerca-de" element={<AcercaDe />} />
         </Routes>
       </Main>
@@ -31,6 +35,6 @@ const Main = styled.main`
   padding: 40px;
   border-radius: 10px;
   box-shadow: 0px 0px 5px rgb(100 100 100 / 0.1);
-`
+`;
 
 export default App;
