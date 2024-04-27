@@ -1,4 +1,7 @@
 import { NavLink, Route, Routes } from "react-router-dom";
+import Inicio from "./pages/Inicio";
+import Blog from "./pages/Blog";
+import AcercaDe from "./pages/AcercaDe";
 const App = () => {
   return (
     <div>
@@ -16,34 +19,21 @@ const App = () => {
           <Route
             path="/"
             element={
-              <div>
-                <h2>Página de inicio</h2>
-                <p>Esta es la página principal de nuestro sitio.</p>
-              </div>
+              <Inicio />
             }
           />
 
           <Route
             path="/blog"
             element={
-              <div>
-                <h2>Blog</h2>
-                <ul>
-                  <li>Articulo #1</li>
-                  <li>Articulo #2</li>
-                  <li>Articulo #3</li>
-                </ul>
-              </div>
+              <Blog />
             }
           />
 
           <Route
             path="/acerca-de"
             element={
-              <div>
-                <h2>Acerca de</h2>
-                <p>Hola soy daniel galvez.</p>
-              </div>
+              <AcercaDe />
             }
           />
         </Routes>
