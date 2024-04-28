@@ -35,6 +35,7 @@ const App = () => {
 
       // si ya tiene el producto en tonces lo tenemos que actualizar
       if (agregado) {
+        
         // para ello tenemos que buscartlo, obtener su posicion en el arreglo
         // y con base en su posicion lo actualizamos
         nuevoCarrito.forEach((productoCarrito, index) => {
@@ -47,7 +48,8 @@ const App = () => {
             };
           }
         });
-        // de otra forma entonces agregamos el producto al arreglo
+
+        // De otra forma entonces agregamos el producto al arreglo
       } else {
         nuevoCarrito.push({
           id: id,
@@ -55,6 +57,7 @@ const App = () => {
           cantidad: 1,
         });
       }
+
       // por ultimo actualizamos el carrito
       setCarrito(nuevoCarrito);
     }
