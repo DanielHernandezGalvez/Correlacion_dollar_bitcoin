@@ -4,6 +4,8 @@ import Inicio from "./components/Inicio";
 import Blog from "./components/Blog";
 import Tienda from "./components/Tienda";
 import Error404 from "./components/Error404";
+import Carrito from "./Carrito";
+import { useState } from "react";
 
 const App = () => {
   const productos = [
@@ -12,6 +14,7 @@ const App = () => {
     { id: 3, nombre: "producto 3" },
     { id: 4, nombre: "producto 4" },
   ];
+  const [carrito, setCarrito] = useState([])
 
   return (
     <>
@@ -30,43 +33,43 @@ const App = () => {
           </Routes>
         </main>
         <aside>
-          <h3>Sidebar</h3>
+          <Carrito carrito={carrito} />
         </aside>
       </Contenedor>
     </>
-  )
-}
+  );
+};
 
 const Contenedor = styled.div`
-    max-width: 1000px;
-    padding: 40px;
-    width: 90%;
-    display: grid;
-    gap: 20px;
-    grid-template-columns: 2fr 1fr;
-    background: #fff;
-    margin: 40px 0;
-    border-radius: 10px;
-    box-shadow: 0px 0px 5px rgba(129, 129, 129, 0.1);
-`;
- 
-const Menu = styled.nav`
-    width: 100%;
-    text-align: center;
-    background: #092c4c;
-    grid-column: span 2;
-    border-radius: 3px;
- 
-    a {
-        color: #fff;
-        display: inline-block;
-        padding: 15px 20px;
-    }
- 
-    a:hover {
-        background: #1d85e8;
-        text-decoration: none;
-    }
+  max-width: 1000px;
+  padding: 40px;
+  width: 90%;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 2fr 1fr;
+  background: #fff;
+  margin: 40px 0;
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px rgba(129, 129, 129, 0.1);
 `;
 
-export default App
+const Menu = styled.nav`
+  width: 100%;
+  text-align: center;
+  background: #092c4c;
+  grid-column: span 2;
+  border-radius: 3px;
+
+  a {
+    color: #fff;
+    display: inline-block;
+    padding: 15px 20px;
+  }
+
+  a:hover {
+    background: #1d85e8;
+    text-decoration: none;
+  }
+`;
+
+export default App;
