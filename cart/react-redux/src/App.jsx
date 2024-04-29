@@ -67,6 +67,7 @@ const App = () => {
 
   const store = createStore(reducer);
 
+
   return (
     <Provider store={store}>
       <Contenedor>
@@ -83,7 +84,7 @@ const App = () => {
               path="/tienda"
               element={
                 <Tienda
-                  productos={productos}
+                  
                   agregarProductoAlCarrito={agregarProductoAlCarrito}
                 />
               }
