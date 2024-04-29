@@ -1,4 +1,3 @@
-import Carrito from "../Carrito";
 
 const estadoInicial = {
   productos: [
@@ -8,7 +7,7 @@ const estadoInicial = {
     { id: 4, nombre: "producto D" },
   ],
 
-  Carrito: [1, 2, 3],
+  carrito: [],
 };
 
 const reducer = (estado = estadoInicial, accion) => {

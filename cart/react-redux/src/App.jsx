@@ -17,7 +17,6 @@ const App = () => {
     { id: 3, nombre: "producto 3" },
     { id: 4, nombre: "producto 4" },
   ];
-  const [carrito, setCarrito] = useState([]);
 
   const agregarProductoAlCarrito = (id, nombre) => {
     // si el carrito no tiene elementos agregamos uno
@@ -93,7 +92,7 @@ const App = () => {
           </Routes>
         </main>
         <aside>
-          <Carrito carrito={carrito} />
+          <Carrito />
         </aside>
       </Contenedor>
     </Provider>
