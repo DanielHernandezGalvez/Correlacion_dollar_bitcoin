@@ -6,8 +6,9 @@ import Tienda from "./components/Tienda";
 import Error404 from "./components/Error404";
 import Carrito from "./Carrito";
 import { useState } from "react";
-import {Provider} from "react-redux"
+import { Provider } from "react-redux";
 import { createStore } from "redux";
+import reducer from "./reducers/tiendaReducer";
 
 const App = () => {
   const productos = [
@@ -37,7 +38,6 @@ const App = () => {
 
       // si ya tiene el producto en tonces lo tenemos que actualizar
       if (agregado) {
-        
         // para ello tenemos que buscartlo, obtener su posicion en el arreglo
         // y con base en su posicion lo actualizamos
         nuevoCarrito.forEach((productoCarrito, index) => {
@@ -65,7 +65,7 @@ const App = () => {
     }
   };
 
-  const store = createStore(reducer)
+  const store = createStore(reducer);
 
   return (
     <Provider store={store}>
