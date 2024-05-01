@@ -3,6 +3,7 @@ import posts from "../api/post.js";
 import { NavLink } from "react-router-dom";
 
 const Blog = () => {
+
   return (
     <div>
       <h2>Blog</h2>
