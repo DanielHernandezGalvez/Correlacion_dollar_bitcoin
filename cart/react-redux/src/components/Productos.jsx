@@ -11,7 +11,11 @@ const Productos = ({ productos, agregarProductoAlCarrito }) => {
           return (
             <Producto key={index}>
               <p>{producto.nombre}</p>
-              <Boton onClick={() => agregarProductoAlCarrito(producto.id, producto.nombre)}>
+              <Boton
+                onClick={() =>
+                  agregarProductoAlCarrito(producto.id, producto.nombre)
+                }
+              >
                 Agregar al Carrito
               </Boton>
             </Producto>
@@ -62,8 +66,20 @@ const Boton = styled.button`
 
 const mapStateToProps = (estado) => {
   return {
-    productos: estado.productos
-  }
-}
+    productos: estado.productos,
+  };
+};
 
-export default connect(mapStateToProps)(Productos);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    agregarProductoAlCarrito: (id, nombre) => {
+      dispatch({
+        type: "AGREGAR_PRODUCTO_AL_CARRITO",
+        id: id,
+        nombre: nombre,
+      });
+    },
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Productos);

@@ -1,4 +1,3 @@
-
 const estadoInicial = {
   productos: [
     { id: 1, nombre: "producto A" },
@@ -10,8 +9,20 @@ const estadoInicial = {
   carrito: [],
 };
 
+//  es una funcion que se encarga de administrar el estado global
 const reducer = (estado = estadoInicial, accion) => {
-    return estado
+  switch (accion.type) {
+    case "AGREGAR_PRODUCTO_AL_CARRITO":
+      console.log(accion.nombre)
+      return estado;
+      break;
+    default:
+      return estado;
+  }
 };
+
+{
+  type: "AGREGAR_PRODUCTO_AL_CARRITO";
+}
 
 export default reducer;
