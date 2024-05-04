@@ -1,11 +1,26 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+// import db from "./../firebase/firebaseConfig";
+// import { collection, addDoc } from "firebase/firestore";
 
-const Formulario = () => {
+const Formulario = async () => {
   const [nombre, setNombre] = useState("");
   const [email, setEmail] = useState("");
+
+  const onSubmit = (e) => {
+    // e.preventDefault();
+
+    // addDoc(collection(db, "usuarios"), {
+    //   nombre: nombre,
+    //   correo: email, // Use 'correo' for consistency
+    // });
+
+    // setEmail("");
+    // setNombre("");
+  };
+
   return (
-    <form>
+    <form action="" onSubmit={onSubmit}>
       <Input
         type="text"
         name="name"
