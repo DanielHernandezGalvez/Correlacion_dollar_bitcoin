@@ -48,7 +48,7 @@ const reducer = (estado = estadoInicial, accion) => {
             }
           });
 
-        // De otra forma entonces agregamos el producto al arreglo
+          // De otra forma entonces agregamos el producto al arreglo
         } else {
           nuevoCarrito.push({
             id: id,
@@ -58,11 +58,11 @@ const reducer = (estado = estadoInicial, accion) => {
         }
 
         return {
-          ...estado, carrito: nuevoCarrito
-        }
+          ...estado,
+          carrito: nuevoCarrito,
+        };
       }
 
-      return estado;
     default:
       return estado;
   }
