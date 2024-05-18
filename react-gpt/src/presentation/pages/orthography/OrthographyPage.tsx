@@ -1,4 +1,3 @@
-import React from 'react'
 
 const OrthographyPage = () => {
   return (
@@ -8,6 +7,8 @@ const OrthographyPage = () => {
 
 
           {/* Bienvenida */}
+          
+
 
         </div>
       </div>
