@@ -67,7 +67,13 @@ export const menuRoutes = [
     description: "Convertir audio a texto",
     component: <AudioToTextPage />,
   },
- 
+  {
+    to: "/assistant",
+    icon: "fa-solid fa-user",
+    title: "Asistente",
+    description: "Información del asistente",
+    component: <AssistantPage />,
+  },
 ];
 
 export const router = createBrowserRouter([
