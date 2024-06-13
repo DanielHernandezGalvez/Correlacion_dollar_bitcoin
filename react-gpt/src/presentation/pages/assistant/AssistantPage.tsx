@@ -1,7 +1,7 @@
 
 const AssistantPage = () => {
   return (
-    <div>AssistantPAge</div>
+    <div>Assistant Page</div>
   )
 }
 
