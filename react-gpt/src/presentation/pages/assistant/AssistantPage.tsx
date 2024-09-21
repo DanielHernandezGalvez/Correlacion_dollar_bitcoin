@@ -1,4 +1,3 @@
-
 const AssistantPage = () => {
   return (
     <div>Assistant Page</div>
