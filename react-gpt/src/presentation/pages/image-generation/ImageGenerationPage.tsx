@@ -2,7 +2,7 @@ import React from 'react'
 
 const ImageGenerationPage = () => {
   return (
-    <div>ImageGenerationPage</div>
+    <div>Image Generation Page</div>
   )
 }
 
